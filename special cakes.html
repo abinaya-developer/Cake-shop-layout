@@ -1,0 +1,460 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake shop layout</title>
+    <link rel="stylesheet" href="cakeshop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    .special-cake {
+      margin: 10px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+       background: #fff7dd;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 350px;
+       background: #fff7dd;
+      border: 2px solid #b68a45;
+      height: 160vh;
+      border-radius: 10px;
+    }
+
+    .sidebar h3 {
+      margin-top: 25px;
+      border-top: 1px solid #b68a45;
+      border-bottom: 1px solid #b68a45;
+      font-weight: bold;
+      padding: 20px;
+      font-size: 22px;
+    }
+
+    .sidebar label {
+      display: block;
+      margin: 10px 0;
+      font-size: 22px;
+      gap: 10px;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .main h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .divider {
+      width: 200px;
+      height: 2px;
+      background: #b68a45;
+      margin: 10px auto;
+      position: relative;
+    }
+
+    .divider::after {
+      content: "◆";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f1d08d;
+      padding: 0 5px;
+      color: #b68a45;
+    }
+
+    /* Featured cakes */
+    .featured {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+
+    .featured img {
+      display: flex;
+      width: 300px;
+      height: 50vh;
+    }
+
+    
+    .section-title {
+      font-size: 20px;
+      margin: 20px 0 10px;
+      font-weight: bold;
+    }
+
+    .cake-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .cake-card-2 {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 10px;
+      text-align: center;
+    }
+
+    .cake-card-2 img {
+      width: 100%;
+      border-radius: 8px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .cake-card-2 h4 {
+      margin: 10px 0 5px;
+    }
+
+    .cake-card-2 p {
+      margin: 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .add-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #7a6a21;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .add-btn:hover {
+      background: #5a4a15;
+    }
+
+   
+    .cartToggle {
+      display: none;
+    }
+
+    
+    .cart-popup-2 {
+      position: fixed;
+      top: 20px;
+      right: -320px;
+      width: 260px;
+      background: #fff;
+      padding: 14px 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: right 0.4s ease;
+      z-index: 1000;
+      font-size: 14px;
+    }
+
+    .cart-popup-2 .icon-2 {
+      font-size: 20px;
+      margin-right: 10px;
+      color: #6b5a1a;
+    }
+
+    .cart-popup-2 .message {
+      flex: 1;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .close-btn {
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 8px;
+      color: #888;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+    /* Show popup when checked */
+    .cartToggle:checked ~ .cart-popup-2 {
+      right: 20px;
+    }
+
+    /* ----------------- RESPONSIVE ----------------- */
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+    .special-cake {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .sidebar {
+        width: 90%; 
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .main {
+        width: 90%;
+    }
+    .featured {
+        flex-direction: column;
+        align-items: center;
+    }
+    .featured img {
+        width: 80%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+    .cake-grid-2 {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+}
+
+/* Mobile: 620px and below */
+@media (max-width: 620px) {
+    .sidebar {
+        width: 100%; 
+        border-radius: 8px;
+    }
+    .main {
+        width: 100%;
+        padding: 10px;
+    }
+    .featured img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .cake-grid-2 {
+        grid-template-columns: 1fr; 
+        gap: 10px;
+    }
+    .add-btn {
+        width: 100%; 
+        padding: 10px 0;
+    }
+}
+
+  </style>
+</head>
+<body>
+
+
+ <div class="container">
+        <p>welcome to our shop.kindly note,currently we deliver to all locations!thank you for your love and support.</p>
+        
+<nav>
+    <ul>
+    <img src="images/cake-logo-removebg-preview.png" alt="cake logo" width="100">
+    <li><a href="Products.html">PRODUCTS</a></li>
+    <li><a href="about us.html">ABOUT US</a></li>
+    <li><a href="special cakes.html">SPECIAL CAKES</a></li>
+    <li><a href="snacks.html">SNACKS</a></li>
+    <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+
+
+   <a href="search bar.html">
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            </a>
+            <a href="contactus.html" class="icon-btn">
+                <i class="fa-regular fa-user" style="font-size:24px; margin:20px;"></i>
+            </a>
+
+             <a href="Cakeshop layout.html" class="icon-btn">
+                <i class="fa-solid fa-cart-shopping" style="font-size:24px; margin:20px;"></i>
+                
+            </a>
+            
+</nav>
+<div class="underline">
+
+</div>
+
+</div>
+
+<div class="Special-cake">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Special Cakes</h3>
+    <label><input type="checkbox"> Birthday Cake</label>
+    <label><input type="checkbox"> Anniversary Cake</label>
+    <label><input type="checkbox"> Kids Designer Cake</label>
+
+    <h3>Time Slot</h3>
+    <label><input type="checkbox"> Same Day Delivery</label>
+    <label><input type="checkbox"> 3 Hours Delivery</label>
+    <label><input type="checkbox"> Next Day Delivery</label>
+
+    <h3>Flavours</h3>
+    <label><input type="checkbox"> Blackforest</label>
+    <label><input type="checkbox"> Butterscotch</label>
+    <label><input type="checkbox"> Blueberry</label>
+    <label><input type="checkbox"> Choco Truffle</label>
+    <label><input type="checkbox"> Pineapple</label>
+    <label><input type="checkbox"> Vanilla</label>
+    <label><input type="checkbox"> Strawberry</label>
+    <label><input type="checkbox"> White Forest</label>
+    <label><input type="checkbox"> Black Forest</label>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>SPECIALITY CAKES</h1>
+    <div class="divider"></div>
+
+    <div class="featured">
+      <img src="images/bd cake.jpg" alt="Birthday Cake">
+      <img src="images/anni cake.jpg" alt="Anniversary Cake">
+      <img src="images/car cake.jpg" alt="Kids Cake">
+    </div>
+
+    <div class="section-title">Birthday Cake</div>
+    <div class="cake-grid-2">
+
+      <div class="cake-card-2">
+        <img src="images/bd cake1.jpg" alt="White Forest">
+        <h4>White Forest</h4>
+        <p>Rs.750</p>
+        <input type="checkbox" id="cart1" class="cartToggle">
+        <label for="cart1" class="add-btn">Add Cart</label>
+        <div class="cart-popup-2">
+          <span class="icon-2">🛒</span>
+          <span class="message">White Forest Added To Cart</span>
+          <label for="cart1" class="close-btn">✖</label>
+        </div>
+      </div>
+
+      <div class="cake-card-2">
+        <img src="images/bd cake2.jpg" alt="Tea Cake">
+        <h4>Tea Cake</h4>
+        <p>Rs.590</p>
+        <input type="checkbox" id="cart2" class="cartToggle">
+        <label for="cart2" class="add-btn">Add Cart</label>
+        <div class="cart-popup-2">
+          <span class="icon-2">🛒</span>
+          <span class="message">Tea Cake Added To Cart</span>
+          <label for="cart2" class="close-btn">✖</label>
+        </div>
+      </div>
+
+      <div class="cake-card-2">
+        <img src="images/bd cake3.jpg" alt="Brownies">
+        <h4>Brownies</h4>
+        <p>Rs.850</p>
+        <input type="checkbox" id="cart3" class="cartToggle">
+        <label for="cart3" class="add-btn">Add Cart</label>
+        <div class="cart-popup-2">
+          <span class="icon-2">🛒</span>
+          <span class="message">Brownies Added To Cart</span>
+          <label for="cart3" class="close-btn">✖</label>
+        </div>
+      </div>
+
+      <div class="cake-card-2">
+        <img src="images/CAKE F1.jpg" alt="Choco Cake">
+        <h4>Choco Cake</h4>
+        <p>Rs.650</p>
+        <input type="checkbox" id="cart4" class="cartToggle">
+        <label for="cart4" class="add-btn">Add Cart</label>
+        <div class="cart-popup-2">
+          <span class="icon-2">🛒</span>
+          <span class="message">Choco Cake Added To Cart</span>
+          <label for="cart4" class="close-btn">✖</label>
+        </div>
+      </div>
+
+      <div class="cake-card-2">
+        <img src="images/CAKE F4.jpg" alt="Cheese Cake">
+        <h4>Cheese Cake</h4>
+        <p>Rs.900</p>
+        <input type="checkbox" id="cart5" class="cartToggle">
+        <label for="cart5" class="add-btn">Add Cart</label>
+        <div class="cart-popup-2">
+          <span class="icon-2">🛒</span>
+          <span class="message">Cheese Cake Added To Cart</span>
+          <label for="cart5" class="close-btn">✖</label>
+        </div>
+      </div>
+
+      <div class="cake-card-2">
+        <img src="images/CAKE F5.jpg" alt="White Forest">
+        <h4>White Forest</h4>
+        <p>Rs.800</p>
+        <input type="checkbox" id="cart6" class="cartToggle">
+        <label for="cart6" class="add-btn">Add Cart</label>
+        <div class="cart-popup-2">
+          <span class="icon-2">🛒</span>
+          <span class="message">White Forest Added To Cart</span>
+          <label for="cart6" class="close-btn">✖</label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+<footer class="footer-end">
+    <img src="images/cake-logo-removebg-preview.png" alt="cake-logo" class="footer-logo">
+
+    <div class="footer-col">
+      <h3>ONLINE SHOPPING</h3>
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Special Cakes</a></li>
+        <li><a href="#">Snacks</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>USEFUL LINKS</h3>
+      <ul>
+        <li><a href="#">T&amp;C</a></li>
+        <li><a href="#">Booking</a></li>
+        <li><a href="#">Cancellation</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Return/Refund</a></li>
+        <li><a href="#">Payments</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>CONTACT US</h3>
+      <p><i class="fa-solid fa-location-dot"></i> Manek Ratna<br>3rd Floor, Block No.304,<br>Ryna Arcade, Zakeria Road,<br>Malad (West), Mumbai,<br>Maharashtra, Pincode: 400064</p>
+      <p><i class="fa fa-phone"></i> +91 8879438031</p>
+      <p><i class="fa fa-envelope"></i> info@cakeshop.com</p>
+      
+    </div>
+<div class="footer-bottom">
+    <p>© 2021-2025 www.Cakeshop.Com All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><img src="images/fb logo.jpg" alt="Facebook"></a>
+      <a href="#"><img src="images/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="images/whatsapp.jpg" alt="WhatsApp"></a>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

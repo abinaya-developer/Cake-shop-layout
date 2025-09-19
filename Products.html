@@ -1,0 +1,409 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake shop layout</title>
+    <link rel="stylesheet" href="cakeshop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+     font-family: "Roboto", sans-serif;
+      /* background: #f9f9f9; */
+
+    }
+
+    /* Header Section */
+    .hero {
+    margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 80px;
+      background: linear-gradient(to right, #4b006e, #d48ae4);
+      color: white;
+    }
+
+    .hero-text {
+        position: relative;
+        left: 10%;
+      max-width: 50%;
+      text-align: center;
+    }
+
+    .hero-text h2 {
+      color: #ffb347;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .hero img {
+        position: relative;
+        right: 10%;
+      width: 450px;
+      border-radius: 12px;
+      
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      padding: 30px 20px 10px;
+      background: #fff7dd;
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .divider {
+      width: 50px;
+      height: 4px;
+      margin: 10px auto;
+      background: brown;
+    }
+
+    /* Product Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px 40px;
+      background: #fff7dd;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    /* Category Buttons */
+    .categories {
+      text-align: center;
+       background: #fff7dd;
+      padding: 20px;
+    }
+
+    .categories button {
+      background: #6c5c2e;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 8px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Why Choose Us */
+    .why {
+       background: #fff7dd;
+      padding: 40px 60px;
+      text-align: center;
+    }
+
+    .why h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .why p {
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      text-align: left;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      width: 250px;
+      margin: 10px;
+    }
+
+    .feature h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #333;
+    }
+
+/* ---------------- RESPONSIVE---------------- */
+
+/* Tablet: up to 900px */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        padding: 30px 20px;
+        text-align: center;
+    }
+    .hero-text {
+        left: 0;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .hero-text h1 {
+        font-size: 28px;
+    }
+    .hero-text h2 {
+        font-size: 22px;
+    }
+    .hero img {
+        right: 0;
+        width: 300px;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+    }
+    .card img {
+        height: 150px;
+    }
+    .categories button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 6px;
+    }
+    .why {
+        padding: 30px 20px;
+    }
+    .feature {
+        width: 45%;
+    }
+}
+
+/* Mobile: up to 480px */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 22px;
+    }
+    .hero-text h2 {
+        font-size: 18px;
+    }
+    .hero img {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    .card img {
+        height: 120px;
+    }
+    .categories button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    .feature {
+        width: 100%;
+    }
+}
+
+
+  </style>
+</head>
+<body>
+
+
+ <div class="container">
+        <p>welcome to our shop.kindly note,currently we deliver to all locations!thank you for your love and support.</p>
+        
+<nav>
+    <ul>
+    <img src="images/cake-logo-removebg-preview.png" alt="cake logo" width="100">
+    <li><a href="Products.html">PRODUCTS</a></li>
+    <li><a href="about us.html">ABOUT US</a></li>
+    <li><a href="special cakes.html">SPECIAL CAKES</a></li>
+    <li><a href="snacks.html">SNACKS</a></li>
+    <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+
+
+   <a href="search bar.html">
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            </a>
+            <a href="contactus.html" class="icon-btn">
+                <i class="fa-regular fa-user" style="font-size:24px; margin:20px;"></i>
+            </a>
+
+             <a href="Cakeshop layout.html" class="icon-btn">
+                <i class="fa-solid fa-cart-shopping" style="font-size:24px; margin:20px;"></i>
+                
+            </a>
+            
+</nav>
+<div class="underline">
+
+</div>
+
+</div>
+  <!-- Header -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Include In Sweet Biss</h2>
+      <h1>Celebrate The Season With Our Exclusive Flavour</h1>
+    </div>
+    <img src="images/Fairy-Tale Cake with Delicate Details.png" alt="Cake">
+  </section>
+
+  <!-- Section 1 -->
+  <div class="section-title">
+    <h2>Satisfy Your Cake Carving In A Flash!</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="grid">
+    <a href="cake buy.html"><div class="card"><img src="images/cake12.jpg" alt=""><p>Pastries</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake11.jpg" alt=""><p>Nuts Cake</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake10.jpg" alt=""><p>Tea Cake</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake9.jpg" alt=""><p>Brownies</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake8.jpg" alt=""><p>Brownies</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake7.jpg" alt=""><p>Choco Cake</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake6.jpg" alt=""><p>Cheese Cake</p></div></a>
+    <a href="cake buy.html"><div class="card"><img src="images/cake5.jpg" alt=""><p>White Forest</p></div></a>
+    
+  </div>
+
+  <!-- Categories -->
+  <div class="categories">
+    <h2>Experience Our Flavours</h2>
+    <p>Buy Cakes Online With A World Of Flavors At Your Fingertips</p>
+    <button>Chocolate</button>
+    <button>Black Forest</button>
+    <button>Blueberry</button>
+    <button>Butterscotch</button>
+    <button>Red Velvet</button>
+    <button>White Forest</button>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="grid">
+   <a href="special cakes.html"><div class="card"><img src="images/CAKE F5.jpg" alt=""><p>Butterscotch Cake</p></div></a>
+    <a href="special cakes.html"><div class="card"><img src="images/CAKE F4.jpg" alt=""><p>Red Velvet</p></div></a>
+    <a href="special cakes.html"><div class="card"><img src="images/CAKE F1.jpg" alt=""><p>Chocolate Cake</p></div></a>
+    <a href="special cakes.html"><div class="card"><img src="images/cake3.jpg" alt=""><p>Red Velvet</p></div></a>
+  </div>
+
+  <!-- Why Choose Us -->
+  <div class="why">
+    <h2>Why Choose Our Freshly Baked Cakes Online?</h2>
+    <p>Our Cakes Have Been Serving Our Guests With The Best Quality Treats, Traditionally Made And Presented With Care.</p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>100% Freshly Baked</h3>
+        <p>We Believe In Delivering The Best. Our Cakes Are Freshly Prepared Every Day From Our Personalized Home Oven.</p>
+      </div>
+      <div class="feature">
+        <h3>Committed To Quality</h3>
+        <p>We Always Prioritize Quality From Our Ingredients To Our Kitchen Operations And Delivering Services.</p>
+      </div>
+      <div class="feature">
+        <h3>No Added Preservatives</h3>
+        <p>Our Cakes Are Freshly Prepared Based On Requirements And Contain Zero Preservatives Or Sweeteners.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer-end">
+    <img src="images/cake-logo-removebg-preview.png" alt="cake-logo" class="footer-logo">
+
+    <div class="footer-col">
+      <h3>ONLINE SHOPPING</h3>
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Special Cakes</a></li>
+        <li><a href="#">Snacks</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>USEFUL LINKS</h3>
+      <ul>
+        <li><a href="#">T&amp;C</a></li>
+        <li><a href="#">Booking</a></li>
+        <li><a href="#">Cancellation</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Return/Refund</a></li>
+        <li><a href="#">Payments</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>CONTACT US</h3>
+      <p><i class="fa-solid fa-location-dot"></i> Manek Ratna<br>3rd Floor, Block No.304,<br>Ryna Arcade, Zakeria Road,<br>Malad (West), Mumbai,<br>Maharashtra, Pincode: 400064</p>
+      <p><i class="fa fa-phone"></i> +91 8879438031</p>
+      <p><i class="fa fa-envelope"></i> info@cakeshop.com</p>
+      
+    </div>
+<div class="footer-bottom">
+    <p>© 2021-2025 www.Cakeshop.Com All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><img src="images/fb logo.jpg" alt="Facebook"></a>
+      <a href="#"><img src="images/instagram.jpg" alt="Instagram"></a>
+      <a href="#"><img src="images/whatsapp.jpg" alt="WhatsApp"></a>
+    </div>
+  </footer>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
